@@ -24,7 +24,6 @@ Le passage d'une approche linéaire à une approche par ensemble (Random Forest)
 | **Random Forest** | **86.76%** | **9.57 €** |
 
 ## Gestion de Projet
-* **Planification** : Suivi des étapes via un diagramme de Gantt (disponible dans les rapports).
 * **Méthodologie** : Approche scientifique itérative, du nettoyage des données à l'interprétation métier des résultats.
 
 ## Installation et Usage

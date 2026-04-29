@@ -1,7 +1,7 @@
 # Hotel Price Prediction & Revenue Management Analysis (Python)
 
 ## Description
-Projet de modélisation prédictive réalisé dans le cadre du cursus **IMT-BS / ENSIIE**. Ce logiciel analyse les facteurs influençant le tarif journalier moyen (ADR) de réservations hôtelières et compare plusieurs modèles de Machine Learning pour optimiser le Revenue Management.
+Projet de modélisation prédictive réalisé dans le cadre du cursus **de Master 1 à IMT-BS**. Ce logiciel analyse les facteurs influençant le tarif journalier moyen (ADR) de réservations hôtelières et compare plusieurs modèles de Machine Learning pour optimiser le Revenue Management.
 
 ## Caractéristiques Techniques
 * **Langage** : Python 3.x.

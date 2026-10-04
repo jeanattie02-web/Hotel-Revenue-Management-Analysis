@@ -209,8 +209,8 @@ Approche **scientifique itérative** : chaque étape (cleaning → EDA → modé
 
 | Nom | Contribution |
 |---|---|
-| **Jean ATTIE** | Data cleaning · EDA · Modélisation |
-| **Léo GAUTIER** | Feature engineering · Évaluation · Visualisations |
+| **Jean ATTIE** | Data cleaning · EDA · Modélisation . Feature engineering |
+| **Léo GAUTIER** | Évaluation · Visualisations |
 | **Antoine DEMANGHON** | Préprocessing · Modélisation · Documentation |
 
 ---

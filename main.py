@@ -14,8 +14,8 @@ Original file is located at
 - Léo GAUTIER  
 - Antoine DEMANGHON  
 
-**Date de remise** : 16 novembre 2024, 17h00  
-**Date de présentation** : 17 novembre 2024
+**Date de remise** : 16 novembre 2025, 17h00  
+**Date de présentation** : 17 novembre 2025
 
 <br>
 <br>
@@ -2388,7 +2388,7 @@ Cette analyse fournit aux hôteliers des outils concrets pour :
 
 MISSION ACCOMPLIE ! Le modèle est prêt pour la présentation et potentiellement le déploiement.
 
-Date de finalisation : 16 novembre 2024
+Date de finalisation : 16 novembre 2025
 Équipe : Jean ATTIE, Léo GAUTIER, Antoine DEMANGHON
 Cours : INF 4002 - Analyse de Données
 """

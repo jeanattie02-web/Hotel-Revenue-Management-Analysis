@@ -40,7 +40,7 @@ Trois sous-questions structurent l'analyse :
 | **Période** | 2015 – 2017 |
 | **Types d'hôtels** | City Hotel & Resort Hotel |
 | **Variable cible** | `adr` (Average Daily Rate, en €) |
-| **Source** | [Hotel Booking Dataset – Kaggle]: https://www.kaggle.com/datasets/saadharoon27/hotel-booking-dataset |
+| **Source** | [Hotel Booking Dataset – Kaggle](https://www.kaggle.com/datasets/saadharoon27/hotel-booking-dataset) |
 
 > ℹ️ Le fichier contient 36 colonnes, dont `name`, `email`, `phone-number` et `credit_card` : ces données personnelles sont fictives et ne sont pas utilisées dans la modélisation.
 

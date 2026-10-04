@@ -1,6 +1,6 @@
 # 🏨 Hotel Price Prediction & Revenue Management
 
-> **Modélisation prédictive du tarif journalier moyen (ADR) sur plus de 100 000 réservations hôtelières — du nettoyage des données à l'optimisation du Revenue Management.**
+> **Modélisation prédictive du tarif journalier moyen (ADR) sur près de 120 000 réservations hôtelières — du nettoyage des données à l'optimisation du Revenue Management.**
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)
@@ -40,7 +40,9 @@ Trois sous-questions structurent l'analyse :
 | **Période** | 2015 – 2017 |
 | **Types d'hôtels** | City Hotel & Resort Hotel |
 | **Variable cible** | `adr` (Average Daily Rate, en €) |
-| **Source** | [Hotel Booking Demand Dataset – Kaggle](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand) |
+| **Source** | [Hotel Booking Dataset – Kaggle](https://www.kaggle.com/datasets/saadharoon27/hotel-booking-dataset) |
+
+> ℹ️ Le fichier contient 36 colonnes, dont `name`, `email`, `phone-number` et `credit_card` : ces données personnelles sont fictives et ne sont pas utilisées dans la modélisation.
 
 ---
 
@@ -149,8 +151,8 @@ Le projet produit trois visualisations majeures, disponibles dans `/figures` :
 
 ```bash
 # Cloner le repository
-git clone https://github.com/<votre-user>/hotel-price-prediction.git
-cd hotel-price-prediction
+git clone https://github.com/jeanattie02-web/Hotel-Revenue-Management-Analysis.git
+cd Hotel-Revenue-Management-Analysis
 
 # Installer les dépendances
 pip install -r requirements.txt
@@ -170,7 +172,7 @@ jupyter
 
 ```bash
 # Option 1 — Notebook interactif (recommandé)
-jupyter notebook Hotel-Booking.ipynb
+jupyter notebook notebooks/Hotel-Booking.ipynb
 
 # Option 2 — Script Python
 python main.py
@@ -181,9 +183,9 @@ python main.py
 ## 📁 Structure du projet
 
 ```
-hotel-price-prediction/
+Hotel-Revenue-Management-Analysis/
 ├── data/
-│   └── hotel_bookings.csv
+│   └── hotel_booking.csv
 ├── figures/
 │   ├── 01_correlations_variables.png
 │   ├── 02_importance_features_rf.png
@@ -207,16 +209,16 @@ Approche **scientifique itérative** : chaque étape (cleaning → EDA → modé
 
 | Nom | Contribution |
 |---|---|
-| **Jean ATTIE** | Data cleaning · EDA · Modélisation |
-| **Léo GAUTIER** | Feature engineering · Évaluation · Visualisations |
+| **Jean ATTIE** | Data cleaning · EDA · Modélisation . Feature engineering |
+| **Léo GAUTIER** | Évaluation · Visualisations |
 | **Antoine DEMANGHON** | Préprocessing · Modélisation · Documentation |
 
 ---
 
 ## 📜 Licence
 
-Projet académique réalisé dans le cadre du cours **INF 4002 – IMT-BS (Master 1)**.
-Usage pédagogique uniquement.
+Projet académique réalisé dans le cadre du cours **INF 4002 – IMT Business School (Master 1)**.
+
 
 ---
 

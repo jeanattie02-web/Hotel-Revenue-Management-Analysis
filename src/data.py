@@ -8,7 +8,7 @@ def load_data(path):
     return pd.read_csv(path)
 
 
-def clean_data(df:pd.DataFrame, adr_max=1000):
+def clean_data(df: pd.DataFrame, adr_max=1000):
     """Nettoie les réservations et renvoie une copie.
 
     Remplit les valeurs manquantes, retire les réservations sans client

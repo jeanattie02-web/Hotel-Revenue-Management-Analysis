@@ -20,7 +20,6 @@ def evaluate_model(model: RegressorMixin, X_test: pd.DataFrame, y_test: pd.Serie
 def compare_models(models: dict, X_test: pd.DataFrame, y_test: pd.Series):
     """Évalue chaque modèle et renvoie un tableau trié du meilleur au moins bon."""
     results = {}
-    # Cette fois, on a besoin du nom ET du modèle
     for name, model in models.items():
         results[name] = evaluate_model(model, X_test, y_test)
     return pd.DataFrame(results).T.sort_values("R2", ascending=False)

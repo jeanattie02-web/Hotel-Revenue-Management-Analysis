@@ -5,7 +5,7 @@ from src.evaluate import compare_models
 from src.features import add_features, encode_features, filter_target
 from src.models import split_data, train_models
 
-DATA_PATH = "database/hotel_booking.csv"
+DATA_PATH = "data/hotel_booking.csv"
 
 
 def main():

@@ -62,10 +62,15 @@ NUMERIC_FEATURES = [
 TARGET = "adr"
 
 
-def encode_features(df):
+def encode_features(df: pd.DataFrame):
     """Garde les variables du modèle et encode les catégorielles en 0/1."""
     # On ne garde que les colonnes utiles : numériques, catégorielles et la cible
     df= df[NUMERIC_FEATURES + CATEGORICAL_FEATURES + [TARGET]]
 
     # On transforme chaque variable catégorielle en colonnes de 0 et de 1
     return pd.get_dummies(df, columns=CATEGORICAL_FEATURES, drop_first=True)
+
+def filter_target(df: pd.DataFrame, quantile=0.99):
+    """Garde les réservations au tarif strictement positif et sous le quantile choisi."""
+    seuil = df[TARGET].quantile(quantile)
+    return df[(df[TARGET] > 0) & (df[TARGET] <= seuil)]

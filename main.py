@@ -31,8 +31,8 @@ def main():
     results = compare_models(models, X_test, y_test)
     print(results)
 
-    # Graphiques (Sauvegardé dans figures/)
-    # Matrice de Correlation:
+    # Graphiques (Sauvegardés dans figures/)
+    # Matrice de Corrélation:
     fig = plot_correlations(df[NUMERIC_FEATURES + [TARGET]])
     fig.savefig("figures/01_correlations_variables.png", dpi=150)
 
@@ -40,7 +40,7 @@ def main():
     fig = plot_feature_importance(models["Random Forest"], X_train.columns)
     fig.savefig("figures/02_importance_features_rf.png", dpi=150)
 
-    # Prix Predit contre Vrai Prix
+    # Prix prédit contre prix réel
     y_pred = models["Random Forest"].predict(X_test)
     fig = plot_predictions(y_test, y_pred, results)
     fig.savefig("figures/03_performance_models_rf.png", dpi=150)

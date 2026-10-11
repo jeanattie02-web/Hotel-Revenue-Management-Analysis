@@ -11,7 +11,7 @@
 
 ---
 
-## 📌 Contexte
+##  Contexte
 
 Projet réalisé en trinôme dans le cadre du **cursus Master 1 à IMT-BS (cours INF 4002)**, sous Google Colab (novembre 2025). Il a ensuite été **restructuré individuellement en pipeline Python modulaire** (octobre 2026) : code découpé en modules réutilisables, versionné avec Git, et analyse approfondie des erreurs du modèle.
 
@@ -21,7 +21,7 @@ L'objectif est de **comprendre les leviers tarifaires** d'un groupe hôtelier (C
 
 ---
 
-## 🎯 Problématique
+##  Problématique
 
 > *Quels sont les facteurs qui déterminent le prix d'une nuit d'hôtel, et peut-on le prédire de manière fiable pour optimiser la stratégie tarifaire ?*
 
@@ -32,7 +32,7 @@ Trois sous-questions structurent l'analyse :
 
 ---
 
-## 🗂️ Dataset
+##  Dataset
 
 | Caractéristique | Valeur |
 |---|---|
@@ -42,11 +42,11 @@ Trois sous-questions structurent l'analyse :
 | **Variable cible** | `adr` (Average Daily Rate, en €) |
 | **Source** | [Hotel Booking Dataset – Kaggle](https://www.kaggle.com/datasets/saadharoon27/hotel-booking-dataset) |
 
-> ℹ️ Le fichier contient 36 colonnes, dont `name`, `email`, `phone-number` et `credit_card` : ces données personnelles sont fictives et ne sont pas utilisées dans la modélisation.
+> ℹ Le fichier contient 36 colonnes, dont `name`, `email`, `phone-number` et `credit_card` : ces données personnelles sont fictives et ne sont pas utilisées dans la modélisation.
 
 ---
 
-## ⚙️ Stack Technique
+## ⚙ Stack Technique
 
 | Domaine | Outils |
 |----|-----|
@@ -59,7 +59,7 @@ Trois sous-questions structurent l'analyse :
 
 ---
 
-## 🔬 Pipeline de Data Science
+##  Pipeline de Data Science
 
 ```
 ┌──────────────┐   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐
@@ -92,9 +92,10 @@ Trois modèles entraînés sur le même découpage train/test (80/20, `random_st
 ### 5. Évaluation
 - Métriques calculées sur le jeu de test : **R²**, **MAE** et **RMSE**
 - Analyse des résidus : biais et dispersion selon le niveau de prix (voir « Analyse des résidus »)
+
 ---
 
-## 📊 Résultats
+##  Résultats
 
 ### Performance comparée des modèles
 
@@ -102,7 +103,7 @@ Trois modèles entraînés sur le même découpage train/test (80/20, `random_st
 |---|:---:|:---:|:---:|---|
 | Linear Regression | 0,61 | 20,28 € | 27,05 € | ❌ Insuffisant : relations non linéaires non captées |
 | Decision Tree | 0,74 | 15,43 € | 22,16 € | ⚠️ Correct mais limité : un seul arbre de profondeur 10 manque de finesse (pas de surapprentissage : R² de 0,76 en entraînement contre 0,74 en test) |
-| ** Random Forest** | **0,87** | **9,56 €** | **15,78 €** | ✅ Modèle retenu : erreur moyenne inférieure à 10 € |
+| **Random Forest** | **0,87** | **9,56 €** | **15,78 €** | ✅ Modèle retenu : erreur moyenne inférieure à 10 € |
 
 > Le Random Forest divise l'erreur moyenne par 2 (de 20,28 € à 9,56 €) et fait passer le R² de 0,61 à 0,87.
 
@@ -118,11 +119,11 @@ Trois modèles entraînés sur le même découpage train/test (80/20, `random_st
 | 5 | `lead_time` | 6,7 % |
 | 6 | `market_segment_Online TA` | 6,0 % |
 
-> 📌 **Insight métier** : le tarif est piloté avant tout par **la période de l'année** et **la composition du groupe**. La saisonnalité est même sous-estimée par ce classement : elle est répartie entre plusieurs variables corrélées (mois, numéro de semaine, jour du mois, mois d'août), qui pèsent ensemble environ 30 %. Ce sont deux leviers directement actionnables en Revenue Management.
+>  **Insight métier** : le tarif est piloté avant tout par **la période de l'année** et **la composition du groupe**. La saisonnalité est même sous-estimée par ce classement : elle est répartie entre plusieurs variables corrélées (mois, numéro de semaine, jour du mois, mois d'août), qui pèsent ensemble environ 30 %. Ce sont deux leviers directement actionnables en Revenue Management.
 
 ---
 
-## 📈 Visualisations clés
+##  Visualisations clés
 
 Le pipeline (`python main.py`) génère trois figures dans le dossier `figures/`.
 
@@ -140,7 +141,6 @@ Elle révèle les variables redondantes (le mois et le numéro de semaine sont p
 Quatre graphiques : prédictions vs valeurs réelles, distribution des résidus, comparaison du R² des trois modèles, et résidus en fonction des prix prédits.
 
 ---
-
 
 ## Analyse des résidus
 
@@ -164,20 +164,20 @@ Quatre graphiques : prédictions vs valeurs réelles, distribution des résidus,
 - **En euros**, si la question est le revenu : sous-estimer de 24 € le prix d'une suite fait perdre plus d'argent que de se tromper de 9 € sur une petite chambre.
 - **En proportion**, si la question est la perception du client ou la concurrence : une chambre à 45 € affichée 54 € paraît 20 % trop chère, et le client part chez le voisin.
 
-- **Choix de la métrique.** Notre étude porte sur le revenue management, dont l'objectif est de maximiser le revenu. Nous retenons donc la MAE, exprimée en euros, comme métrique principale. L'erreur relative vient en complément : elle montre que les chambres bon marché sont proportionnellement les moins bien prédites.
+**Choix de la métrique.** Notre étude porte sur le revenue management, dont l'objectif est de maximiser le revenu. Nous retenons donc la MAE, exprimée en euros, comme métrique principale. L'erreur relative vient en complément : elle montre que les chambres bon marché sont proportionnellement les moins bien prédites.
 
-- **Piste d'amélioration.** Quand les erreurs grandissent à peu près proportionnellement au prix, on modélise souvent le logarithme du prix plutôt que le prix lui-même.
+**Piste d'amélioration.** Quand les erreurs grandissent à peu près proportionnellement au prix, on modélise souvent le logarithme du prix plutôt que le prix lui-même.
 
 ---
 ## Conclusions
 
-✅ **Un modèle non linéaire est indispensable** : avec les mêmes variables, la régression linéaire plafonne à un R² de 0,61, contre 0,87 pour le Random Forest.
+ **Un modèle non linéaire est indispensable** : avec les mêmes variables, la régression linéaire plafonne à un R² de 0,61, contre 0,87 pour le Random Forest.
 
-✅ **Le Random Forest atteint une précision exploitable** (MAE ≈ 9,56 €), suffisante pour alimenter un outil d'aide à la décision tarifaire.
+ **Le Random Forest atteint une précision exploitable** (MAE ≈ 9,56 €), suffisante pour alimenter un outil d'aide à la décision tarifaire.
+ 
+ **Trois leviers business émergent** : la saisonnalité, la taille du groupe et le type d'établissement.
 
-✅ **Trois leviers business émergent** : la saisonnalité, la taille du groupe et le type d'établissement.
-
-⚠️ **Limites identifiées** :
+ **Limites identifiées** :
 - Le modèle est entraîné sur des tarifs compris entre 0 et 252 € : il ne sait pas prédire les prix plus élevés.
 - Il sous-estime les chambres chères (+25 € en moyenne au-delà de 200 €) et surestime les moins chères (-9 € en dessous de 50 €).
 - Il ne sait pas extrapoler l'année d'arrivée : une réservation postérieure à 2017 est traitée comme une réservation de 2017. Un réentraînement sur des données récentes est nécessaire, notamment pour intégrer la dynamique post-COVID.
@@ -217,7 +217,7 @@ pip install -r requirements.txt
 # Option 1 — Pipeline complet (recommandé)
 python main.py
 
-# Option 2 — Exploration interactive (notebook avant la factorisation)
+# Option 2 — Exploration interactive (notebook avant la restructuration)
 jupyter notebook notebooks/Hotel-Booking.ipynb 
 ```
 
@@ -225,7 +225,7 @@ jupyter notebook notebooks/Hotel-Booking.ipynb
 
 ---
 
-## 📁 Structure du projet
+##  Structure du projet
 
 ```
 Hotel-Revenue-Management-Analysis/
@@ -257,7 +257,6 @@ Hotel-Revenue-Management-Analysis/
 Approche **scientifique itérative** : chaque étape (cleaning → EDA → modélisation → évaluation) a été validée avant de passer à la suivante, avec retour en arrière si nécessaire. L'interprétation métier des résultats est intégrée à chaque palier plutôt que reportée à la fin. 
 
 ---
-
 ## Utilisation de l'IA générative
 
 La restructuration du projet (2026) a été réalisée avec l'aide d'une IA générative (Claude), utilisée comme assistant pédagogique :
@@ -270,13 +269,13 @@ La restructuration du projet (2026) a été réalisée avec l'aide d'une IA gén
 
 | Nom | Contribution |
 |---|---|
-| **Jean ATTIE** | Data cleaning · EDA · Modélisation . Feature engineering |
+| **Jean ATTIE** | Data cleaning · EDA · Modélisation · Feature engineering · Restructuration modulaire (2026)|
 | **Léo GAUTIER** | Évaluation · Visualisations |
 | **Antoine DEMANGHON** | Préprocessing · Modélisation · Documentation |
 
 ---
 
-## 📜 Licence
+##  Licence
 
 Projet académique réalisé dans le cadre du cours **INF 4002 – IMT Business School (Master 1)**.
 

@@ -1,6 +1,6 @@
-# 🏨 Hotel Price Prediction & Revenue Management
+# Hotel Price Prediction & Revenue Management
 
-> > **Modélisation prédictive du tarif journalier moyen (ADR) sur près de 120 000 réservations hôtelières, du nettoyage des données jusqu'aux recommandations de Revenue Management.**
+> **Modélisation prédictive du tarif journalier moyen (ADR) sur près de 120 000 réservations hôtelières, du nettoyage des données jusqu'aux recommandations de Revenue Management.**
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)
@@ -72,9 +72,7 @@ Trois sous-questions structurent l'analyse :
 ### 1. Préprocessing
 - Imputation des valeurs manquantes (`children`, `country`, `agent`, `company`)
 - Suppression des réservations incohérentes (aucun client, ADR négatif ou supérieur à 1 000 €)
-- Création de variables dérivées : `total_nights`, `total_guests`, `arrival_month_num`, `has_children`, `room_changed`
 - Filtrage de la cible : ADR strictement positif et inférieur au 99e centile (252 €), pour écarter les tarifs extrêmes
-- **One-Hot Encoding** des variables catégorielles (`hotel`, `meal`, `market_segment`, `reserved_room_type`…)
 
 ### 2. Analyse exploratoire (EDA)
 - Étude de la **saisonnalité** mensuelle de l'ADR
@@ -111,8 +109,6 @@ Trois modèles entraînés sur le même découpage train/test (80/20, `random_st
 
 ### Variables les plus prédictives (Random Forest)
 
-### Variables les plus prédictives (Random Forest)
-
 | Rang | Variable | Importance |
 |:---:|---|:---:|
 | 🥇 | `total_guests` | 19,9 % |
@@ -123,6 +119,7 @@ Trois modèles entraînés sur le même découpage train/test (80/20, `random_st
 | 6 | `market_segment_Online TA` | 6,0 % |
 
 > 📌 **Insight métier** : le tarif est piloté avant tout par **la période de l'année** et **la composition du groupe**. La saisonnalité est même sous-estimée par ce classement : elle est répartie entre plusieurs variables corrélées (mois, numéro de semaine, jour du mois, mois d'août), qui pèsent ensemble environ 30 %. Ce sont deux leviers directement actionnables en Revenue Management.
+
 ---
 
 ## 📈 Visualisations clés
@@ -141,6 +138,7 @@ Elle révèle les variables redondantes (le mois et le numéro de semaine sont p
 ![Diagnostic du Random Forest](figures/03_performance_models_rf.png)
 
 Quatre graphiques : prédictions vs valeurs réelles, distribution des résidus, comparaison du R² des trois modèles, et résidus en fonction des prix prédits.
+
 ---
 
 
@@ -166,9 +164,10 @@ Quatre graphiques : prédictions vs valeurs réelles, distribution des résidus,
 - **En euros**, si la question est le revenu : sous-estimer de 24 € le prix d'une suite fait perdre plus d'argent que de se tromper de 9 € sur une petite chambre.
 - **En proportion**, si la question est la perception du client ou la concurrence : une chambre à 45 € affichée 54 € paraît 20 % trop chère, et le client part chez le voisin.
 
-**Choix de la métrique.** Notre étude porte sur le revenue management, dont l'objectif est de maximiser le revenu. Nous retenons donc la MAE, exprimée en euros, comme métrique principale. L'erreur relative vient en complément : elle montre que les chambres bon marché sont proportionnellement les moins bien prédites.
+- **Choix de la métrique.** Notre étude porte sur le revenue management, dont l'objectif est de maximiser le revenu. Nous retenons donc la MAE, exprimée en euros, comme métrique principale. L'erreur relative vient en complément : elle montre que les chambres bon marché sont proportionnellement les moins bien prédites.
 
-**Piste d'amélioration.** Quand les erreurs grandissent à peu près proportionnellement au prix, on modélise souvent le logarithme du prix plutôt que le prix lui-même.
+- **Piste d'amélioration.** Quand les erreurs grandissent à peu près proportionnellement au prix, on modélise souvent le logarithme du prix plutôt que le prix lui-même.
+
 ---
 ## Conclusions
 
@@ -188,6 +187,7 @@ Quatre graphiques : prédictions vs valeurs réelles, distribution des résidus,
 - Modéliser le logarithme du prix, pour réduire l'erreur relative sur les chambres bon marché.
 - Optimiser les hyperparamètres (par exemple `max_features`) par validation croisée.
 - Tester un Gradient Boosting (XGBoost, LightGBM).
+
 ---
 
 ## Installation & Utilisation
@@ -222,6 +222,7 @@ jupyter notebook notebooks/Hotel-Booking.ipynb
 ```
 
 `python main.py` enchaîne toutes les étapes, du chargement des données à l'évaluation : il affiche le tableau comparatif des trois modèles et génère les trois figures dans `figures/`, en une dizaine de secondes.
+
 ---
 
 ## 📁 Structure du projet
@@ -251,13 +252,21 @@ Hotel-Revenue-Management-Analysis/
 
 ---
 
-## 🧭 Méthodologie
+## Méthodologie 
 
-Approche **scientifique itérative** : chaque étape (cleaning → EDA → modélisation → évaluation) a été validée avant de passer à la suivante, avec retour en arrière si nécessaire. L'interprétation métier des résultats est intégrée à chaque palier plutôt que reportée à la fin. Utilisation de l'IA Générative comme aide à la factorisation. 
+Approche **scientifique itérative** : chaque étape (cleaning → EDA → modélisation → évaluation) a été validée avant de passer à la suivante, avec retour en arrière si nécessaire. L'interprétation métier des résultats est intégrée à chaque palier plutôt que reportée à la fin. 
 
 ---
 
-## 👥 Auteurs
+## Utilisation de l'IA générative
+
+La restructuration du projet (2026) a été réalisée avec l'aide d'une IA générative (Claude), utilisée comme assistant pédagogique :
+- **Rôle de l'IA** : explication des concepts, exercices de code guidés, relecture du code, proposition de structure et de rédaction pour la documentation.
+- **Mon travail** : écriture et exécution du code étape par étape, débogage, vérifications chiffrées (analyse des résidus, contrôle du surapprentissage) et choix méthodologiques.
+- **Vérification** : chaque résultat présenté a été reproduit en exécutant le pipeline (`python main.py`).
+---
+
+## Auteurs
 
 | Nom | Contribution |
 |---|---|

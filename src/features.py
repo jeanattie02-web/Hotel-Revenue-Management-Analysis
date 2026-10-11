@@ -1,6 +1,6 @@
-import pandas as pd
-
 """Création des variables dérivées."""
+
+import pandas as pd
 
 MOIS = {
     "January": 1,

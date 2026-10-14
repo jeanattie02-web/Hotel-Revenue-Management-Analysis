@@ -35,4 +35,4 @@ def test_add_features_calcule_les_bonnes_valeurs():
 def test_add_features_ne_modifie_pas_le_tableau_original():
     df_brut = make_df()
     add_features(df_brut)
-    assert "total_nights" df_brut.columns
+    assert "total_nights" not in df_brut.columns

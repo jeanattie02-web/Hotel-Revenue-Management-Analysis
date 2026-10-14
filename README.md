@@ -245,9 +245,9 @@ Hotel-Revenue-Management-Analysis/
 │   ├── models.py                  # Découpage train/test et entraînement
 │   ├── evaluate.py                # Métriques et comparaison des modèles
 │   └── plots.py                   # Graphiques
-├── tests.py/ 
-│   ├── test_data.py                 #Tests du nettoyage et de la copie de la base de donnée   
-│   ├── test_features.py             #Tests de la création des nouvelles variables et de la copie 
+├── tests/ 
+│   ├── test_data.py               # Tests du nettoyage et de la copie de la base de donnée   
+│   ├── test_features.py           # Tests de la création des nouvelles variables et de la copie 
 ├── main.py                        # Pipeline complet
 ├── requirements.txt
 ├── .gitignore

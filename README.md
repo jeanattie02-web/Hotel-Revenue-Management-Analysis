@@ -3,6 +3,7 @@
 > **Modélisation prédictive du tarif journalier moyen (ADR) sur près de 120 000 réservations hôtelières, du nettoyage des données jusqu'aux recommandations de Revenue Management.**
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
+![Tests](https://github.com/jeanattie02-web/Hotel-Revenue-Management-Analysis/actions/workflows/tests.yml/badge.svg)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)
 ![Scikit--Learn](https://img.shields.io/badge/Scikit--Learn-ML-F7931E?logo=scikit-learn&logoColor=white)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-Viz-11557C)
@@ -54,7 +55,7 @@ Trois sous-questions structurent l'analyse :
 | **Manipulation de données** | Pandas, NumPy |
 | **Visualisation** | Matplotlib, Seaborn |
 | **Machine Learning** | Scikit-Learn (LinearRegression, DecisionTreeRegressor, RandomForestRegressor) |
-| **Qualité de code** | Ruff (formatage et analyse statique), Git |
+| **Qualité de code** | Ruff (formatage et analyse statique), Git, Pytest, GitAction |
 | **Environnement** | VS Code + WSL (Ubuntu), Jupyter Notebook ; Google Colab pour la version initiale |
 
 ---
@@ -244,9 +245,16 @@ Hotel-Revenue-Management-Analysis/
 │   ├── models.py                  # Découpage train/test et entraînement
 │   ├── evaluate.py                # Métriques et comparaison des modèles
 │   └── plots.py                   # Graphiques
+├── tests.py/ 
+│   ├── test_data.py                 #Tests du nettoyage et de la copie de la base de donnée   
+│   ├── test_features.py             #Tests de la création des nouvelles variables et de la copie 
 ├── main.py                        # Pipeline complet
 ├── requirements.txt
 ├── .gitignore
+├── .github/
+│   └── workflows/
+│       └── tests.yml              # Lance les tests à chaque Pull Request (GitHub Actions)
+├── pytest.ini                     # Configuration de pytes
 └── README.md
 ```
 

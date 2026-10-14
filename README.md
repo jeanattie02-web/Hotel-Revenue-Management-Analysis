@@ -55,7 +55,7 @@ Trois sous-questions structurent l'analyse :
 | **Manipulation de données** | Pandas, NumPy |
 | **Visualisation** | Matplotlib, Seaborn |
 | **Machine Learning** | Scikit-Learn (LinearRegression, DecisionTreeRegressor, RandomForestRegressor) |
-| **Qualité de code** | Ruff (formatage et analyse statique), Git, Pytest, GitAction |
+| **Qualité de code** | Ruff (formatage et analyse statique), Git, pytest, GitHub Actions |
 | **Environnement** | VS Code + WSL (Ubuntu), Jupyter Notebook ; Google Colab pour la version initiale |
 
 ---

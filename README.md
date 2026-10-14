@@ -246,7 +246,7 @@ Hotel-Revenue-Management-Analysis/
 │   ├── evaluate.py                # Métriques et comparaison des modèles
 │   └── plots.py                   # Graphiques
 ├── tests/ 
-│   ├── test_data.py               # Tests du nettoyage et de la copie de la base de donnée   
+│   ├── test_data.py               # Tests du nettoyage et de la copie des données 
 │   ├── test_features.py           # Tests de la création des nouvelles variables et de la copie 
 ├── main.py                        # Pipeline complet
 ├── requirements.txt
@@ -254,7 +254,7 @@ Hotel-Revenue-Management-Analysis/
 ├── .github/
 │   └── workflows/
 │       └── tests.yml              # Lance les tests à chaque Pull Request (GitHub Actions)
-├── pytest.ini                     # Configuration de pytes
+├── pytest.ini                     # Configuration de pytest
 └── README.md
 ```
 

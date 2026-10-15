@@ -3,7 +3,7 @@
 > **Modélisation prédictive du tarif journalier moyen (ADR) sur près de 120 000 réservations hôtelières, du nettoyage des données jusqu'aux recommandations de Revenue Management.**
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
-![Tests](https://github.com/jeanattie02-web/Hotel-Revenue-Management-Analysis/actions/workflows/tests.yml/badge.svg)
+![Tests](https://github.com/jeanattie02-web/Hotel-Revenue-Management-Analysis/actions/workflows/test.yml/badge.svg)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)
 ![Scikit--Learn](https://img.shields.io/badge/Scikit--Learn-ML-F7931E?logo=scikit-learn&logoColor=white)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-Viz-11557C)

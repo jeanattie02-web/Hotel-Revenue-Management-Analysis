@@ -4,3 +4,4 @@ __pycache__/
 .vscode/
 Brouillon.txt
 .pytest_cache/
+models/

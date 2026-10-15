@@ -222,8 +222,7 @@ python main.py
 jupyter notebook notebooks/Hotel-Booking.ipynb 
 ```
 
-`python main.py` enchaîne toutes les étapes, du chargement des données à l'évaluation : il affiche le tableau comparatif des trois modèles et génère les trois figures dans `figures/`, en une dizaine de secondes.
-
+`python main.py` enchaîne toutes les étapes, du chargement des données à l'évaluation : il affiche le tableau comparatif des trois modèles, génère les trois figures dans `figures/` et enregistre le modèle entraîné dans `models/random_forest.joblib`, en une dizaine de secondes.
 ---
 
 ##  Structure du projet
@@ -236,25 +235,26 @@ Hotel-Revenue-Management-Analysis/
 │   ├── 01_correlations_variables.png
 │   ├── 02_importance_features_rf.png
 │   └── 03_performance_models_rf.png
+├── models/                        # Modèle entraîné (généré par main.py, non versionné)
 ├── notebooks/
 │   └── Hotel-Booking.ipynb        # Analyse exploratoire et rapport initial
 ├── src/
 │   ├── __init__.py
 │   ├── data.py                    # Chargement et nettoyage
 │   ├── features.py                # Variables dérivées, filtrage et encodage
-│   ├── models.py                  # Découpage train/test et entraînement
+│   ├── models.py                  # Découpage train/test, entraînement, sauvegarde et chargement
 │   ├── evaluate.py                # Métriques et comparaison des modèles
 │   └── plots.py                   # Graphiques
-├── tests/ 
-│   ├── test_data.py               # Tests du nettoyage et de la copie des données 
-│   ├── test_features.py           # Tests de la création des nouvelles variables et de la copie 
-├── main.py                        # Pipeline complet
-├── requirements.txt
-├── .gitignore
+├── tests/
+│   ├── test_data.py               # Tests du nettoyage et de la copie des données
+│   └── test_features.py           # Tests de la création des variables et de la copie
 ├── .github/
 │   └── workflows/
 │       └── tests.yml              # Lance les tests à chaque Pull Request (GitHub Actions)
+├── main.py                        # Pipeline complet
 ├── pytest.ini                     # Configuration de pytest
+├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 

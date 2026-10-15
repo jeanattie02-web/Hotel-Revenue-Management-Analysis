@@ -9,7 +9,7 @@ from src.features import (
     encode_features,
     filter_target,
 )
-from src.models import split_data, train_models
+from src.models import split_data, train_models,save_model
 from src.plots import plot_correlations, plot_feature_importance, plot_predictions
 
 DATA_PATH = "data/hotel_booking.csv"
@@ -26,10 +26,14 @@ def main():
     # Modélisation
     X_train, X_test, y_train, y_test = split_data(df)
     models = train_models(X_train, y_train)
+    
+    #Sauvegarde de la Modélisation 
+    save_model(models["Random Forest"], X_train.columns)
 
     # Évaluation
     results = compare_models(models, X_test, y_test)
     print(results)
+ 
 
     # Graphiques (Sauvegardés dans figures/)
     # Matrice de Corrélation:
@@ -44,7 +48,6 @@ def main():
     y_pred = models["Random Forest"].predict(X_test)
     fig = plot_predictions(y_test, y_pred, results)
     fig.savefig("figures/03_performance_models_rf.png", dpi=150)
-
-
+    
 if __name__ == "__main__":
     main()

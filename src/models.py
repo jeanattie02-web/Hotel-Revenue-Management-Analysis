@@ -8,6 +8,8 @@ from sklearn.tree import DecisionTreeRegressor
 
 from src.features import TARGET
 
+from pathlib import Path
+import joblib
 
 def split_data(df: pd.DataFrame, test_size=0.2, random_state=42):
     """Sépare la cible des variables explicatives, puis en jeux d'entraînement et de test."""
@@ -39,3 +41,17 @@ def train_models(X_train: pd.DataFrame, y_train: pd.Series):
         # Puis on entraîne chaque modèle sur les données d'entraînement
         model.fit(X_train, y_train)
     return models
+
+
+# Sauvegarde du modèle entrainé 
+
+def save_model(model, feature_names, path="models/random_forest.joblib"):
+    """Enregistre le modèle et la liste des colonnes utilisées à l'entraînement."""
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    joblib.dump({"model": model, "features": list(feature_names)}, path)     #sérialisation
+
+
+def load_model(path="models/random_forest.joblib"):
+    """Recharge le modèle et la liste des colonnes."""
+    artefact = joblib.load(path)     
+    return artefact["model"], artefact["features"]

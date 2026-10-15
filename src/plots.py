@@ -54,7 +54,7 @@ def plot_predictions(y_test, y_pred, results: pd.DataFrame):
     axes[1, 0].set_title(f"Résidus, moyenne : {residuals.mean():.2f} €")
 
     # Graphique 3 : comparaison du R² des modèles
-    axes[0, 1].barh(results.index, results["R2"])  
+    axes[0, 1].barh(results.index, results["R2"])
     axes[0, 1].set_xlim(0, 1)
     axes[0, 1].set_xlabel("R²")
     axes[0, 1].set_title("Comparaison des modèles")

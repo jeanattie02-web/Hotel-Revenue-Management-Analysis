@@ -1,6 +1,5 @@
 import pandas as pd
 from sklearn.tree import DecisionTreeRegressor
-
 from src.models import load_model, save_model
 
 

@@ -35,7 +35,9 @@ def add_features(df):
     df["has_children"] = (df["children"] > 0).astype(int)
 
     # 1 si la chambre attribuée diffère de la chambre réservée, 0 sinon
-    df["room_changed"] = (df["reserved_room_type"] != df["assigned_room_type"]).astype(int)
+    df["room_changed"] = (df["reserved_room_type"] != df["assigned_room_type"]).astype(
+        int
+    )
 
     return df
 

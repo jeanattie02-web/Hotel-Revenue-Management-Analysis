@@ -250,7 +250,7 @@ Hotel-Revenue-Management-Analysis/
 │   └── test_features.py           # Tests de la création des variables et de la copie
 ├── .github/
 │   └── workflows/
-│       └── tests.yml              # Lance les tests à chaque Pull Request (GitHub Actions)
+│       └── test.yml              # Lance les tests à chaque Pull Request (GitHub Actions)
 ├── main.py                        # Pipeline complet
 ├── pytest.ini                     # Configuration de pytest
 ├── requirements.txt
